@@ -11,6 +11,5 @@ public class CameraXIntApplication extends Application {
     public void onCreate() {
         super.onCreate();
         CameraX.initialize(this, Camera2Config.defaultConfig());
-
     }
 }

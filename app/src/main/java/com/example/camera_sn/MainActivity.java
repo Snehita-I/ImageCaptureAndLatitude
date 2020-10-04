@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements CameraXConfig.Pro
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+       // mStorageRef = FirebaseStorage.getInstance().getReference();
         button=findViewById(R.id.button);
         previewView=findViewById(R.id.previewView);
 

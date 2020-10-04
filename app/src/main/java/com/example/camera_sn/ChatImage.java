@@ -65,8 +65,8 @@ public class ChatImage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_image);
 
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        mStorageRef = FirebaseStorage.getInstance().getReference("images");
+//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+//        mStorageRef = FirebaseStorage.getInstance().getReference("images");
 
         backButton = findViewById(R.id.backbutton);
         sendImageChatbtn = findViewById(R.id.sendMessageButton);
@@ -92,7 +92,9 @@ public class ChatImage extends AppCompatActivity {
                 SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
                 //File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpg");
                 //File file = new File("data/data//test.jpg");
-
+                 getLocation();
+                Toast.makeText(ChatImage.this, (int) latitude, Toast.LENGTH_LONG).show();
+                Toast.makeText(ChatImage.this, (int) longitude, Toast.LENGTH_LONG).show();
                 //file creation
                 String root = Environment.getExternalStorageDirectory().toString();
                 File myDir = new File(root + "/images");
@@ -198,7 +200,7 @@ public class ChatImage extends AppCompatActivity {
         o2.inSampleSize = scale;
         return BitmapFactory.decodeStream(c.getContentResolver().openInputStream(uri), null, o2);
     }
-    public void getLocation(View view){
+    public void getLocation(){
         gpsTracker = new GpsTracker(ChatImage.this);
         if(gpsTracker.canGetLocation()){
             latitude = gpsTracker.getLatitude();
